@@ -1,3 +1,10 @@
-from django.shortcuts import render
+""" Course views """
+from django.views.generic import ListView
 
-# Create your views here.
+from .models import Course
+
+class AllCourses(ListView):
+    """ Render all courses """
+    template_name = "courses_list.html"
+    context_object_name = "courses"
+    model = Course
