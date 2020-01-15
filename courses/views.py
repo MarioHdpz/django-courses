@@ -1,6 +1,7 @@
 """ Course views """
 from django.views.generic import ListView
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers import CourseSerializer
 from .models import Course
@@ -20,3 +21,4 @@ class CourseViewSet(ModelViewSet):
     """ Api course retrieval """
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
+    permission_classes = [IsAuthenticated]
