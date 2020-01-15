@@ -7,7 +7,9 @@
       <div class="col-lg-3 my-2 d-flex flex-column justify-content-around">
         <img src="{{ course.image_url }}" class="card-img-top img-fluid" />
         <h2 class="card-title text-center my-4">{{ course.name }}</h2>
-        <p class="text-center">{{ course.category }}</p>
+        <a href="{% url 'category_courses' slug=course.category.slug %}">
+          <p class="text-center">{{ course.category }}</p>
+        </a>
       </div>
       <div class="col-lg-9">
         <p class="text-center">{{ course.description }}</p>

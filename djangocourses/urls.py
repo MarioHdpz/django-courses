@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from courses.views import AllCourses
+from courses.views import AllCourses, CourseByCategory
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('category/<slug:slug>/', CourseByCategory.as_view(), name="category_courses"),
     path('', AllCourses.as_view(), name="home"),
 ]
