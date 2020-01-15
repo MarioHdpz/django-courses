@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container my-5">
+  {% for course in courses %}
+  <div class="card h-100 py-4 px-4 my-4">
+    <div class="row">
+      <div class="col-lg-3 my-2 d-flex flex-column justify-content-around">
+        <img src="{{ course.image_url }}" class="card-img-top img-fluid" />
+        <h2 class="card-title text-center my-4">{{ course.name }}</h2>
+        <p class="text-center">{{ course.category }}</p>
+      </div>
+      <div class="col-lg-9">
+        <p class="text-center">{{ course.description }}</p>
+        <div class="text-center">
+          <h4>Módulos:</h4>
+          {% for module in course.modules.all %}
+          <h5>{{ module }}</h5>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
